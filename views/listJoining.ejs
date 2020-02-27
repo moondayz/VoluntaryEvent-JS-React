@@ -1,0 +1,43 @@
+<%- include ('header.ejs'); -%>
+
+
+    <!-- Event List (table view) --------------------------------------------------- -->
+    <div class="table-wrapper">
+        <h1>JOINING LIST</h1>
+        <% if (joining.length > 0) {%>
+            <table class="tableEvent">
+                <thead class="thead">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Event ID</th>
+                        <th scope="col">Volunteer ID</th>
+                        <th></th>
+                        
+                    </tr>
+                </thead>  
+
+                <tbody>
+                    <% joining.forEach((join, index ) => { %> 
+                        <tr>
+                            <th scope="row"> <%=join.idJoin %></th>
+                            <td> <%= join.Event_idEvent%> </td>
+                            <td> <%= join.Volunteer_idVol%> </td>
+                            <td> 
+                                <a href="/deleteJoining/<%= join.idJoin %>" >Delete</a>        
+                            </td>
+                            
+                        </tr>
+                    <% }) %> 
+                </tbody>
+            </table>
+            <% } else { %>
+                <p class="text-center">No joining found. Go <a href="/addJoining" >here</a> to add events.</p>
+            <% } %>
+    </div>
+</br>
+</br>
+
+
+
+</body>
+</html>

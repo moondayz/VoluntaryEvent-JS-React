@@ -1,0 +1,54 @@
+<%- include ('header.ejs'); -%>
+
+
+
+<!-- AddJoining Form --------------------------------------------->
+
+<div class='bold-line'></div>
+
+<div class='container'>
+    <% if (message != '') { %>
+        <p class="text-center text-danger"><%= message %></p>
+    <% } %>
+
+    <form class="addJoiningForm" action=""  method="POST" enctype="multipart/form-data">
+    
+        <div class='window'>
+           
+            <div class='overlay'></div>
+            <div class='content'>
+
+            <div class='welcome'>Add Joining</div>
+            
+            <div class='input-fields'>
+                <p>Choose an Event</p>
+                <input type="radio" name="Event_idEvent" id="Event_idEvent" value="1" checked> Stars<br>
+                <input type="radio" name="Event_idEvent" id="Event_idEvent" value="2" > WaterAfrica<br>
+                <input type="radio" name="Event_idEvent" id="Event_idEvent" value="3" > HelpAnimal<br>
+                <input type="radio" name="Event_idEvent" id="Event_idEvent" value="4" > SaveKoala<br>
+            </div>
+
+            <div class='input-fields'>
+                <p>Choose a Volunteer</p>
+                <input type="radio" name="Volunteer_idVol" id="Volunteer_idVol" value="1" checked> Bill Clinton<br>
+                <input type="radio" name="Volunteer_idVol" id="Volunteer_idVol" value="2" > Donald Trump<br>
+                <input type="radio" name="Volunteer_idVol" id="Volunteer_idVol" value="3" > Andrzej Duda<br>
+                <input type="radio" name="Volunteer_idVol" id="Volunteer_idVol" value="4" > Angela Merkel<br>
+                <input type="radio" name="Volunteer_idVol" id="Volunteer_idVol" value="5" > Carl Marx <br>
+                <input type="radio" name="Volunteer_idVol" id="Volunteer_idVol" value="6" > Camila Cabello<br>
+
+            </div>
+
+            <button type="submit" class='ghost-round full-width'>Add Joining</button>
+    
+           
+            </div>
+        </div>
+    </form>
+</div>
+
+
+    </div>
+
+</body>
+</html>

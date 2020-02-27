@@ -1,0 +1,92 @@
+<!-- Homepage of the app - This page contains Event List-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link href="design.css" rel="stylesheet" type="text/css">
+    <title><%= title %></title>
+   
+
+
+
+
+</head>
+<body>
+   <div class="content" >
+            <!-- Menu Bar for each page ------------------------------------------------>
+            <nav>
+                <!-- Burada href isimlerinden dolayi hata olabilir. Aynı isim ayni zamanda ejs isimleri- ornekte farkliydi-->
+                <a   href="/" >Home Page</a>
+                <a   href="/addEvent" >Add an Event</a>
+                <a  href="/addVolunteer" >Add a Volunteer</a>
+                <a  href="/listVolunteer" >Volunteer List</a>
+                <a  href="/listJoining" >Joining List</a>
+                <a  href="/addJoining" >Add Joining</a>
+              
+                <div class="animation start-home"></div>   
+            </nav>
+
+
+    <!-- Slide Show for each page------------------------------------------------------------ -->          
+    <div class="slideshow-container">
+
+        <div class="mySlides fade">
+        <div class="numbertext">1 / 4</div>
+        <img src="/images/vol10.jpg" style="width:100%">
+        </div>
+        
+        <div class="mySlides fade">
+        <div class="numbertext">2 / 4</div>
+        <img src="/images/vol4.jpg" style="width:100%">        
+        </div>
+        
+        <div class="mySlides fade">
+        <div class="numbertext">3 / 4</div>
+        <img src="/images/vol8.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides fade">
+        <div class="numbertext">4 / 4</div>
+        <img src="/images/vol2a.jpg" style="width:100%">
+        </div>
+        
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        
+    </div>
+    <br>
+        
+        <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span> 
+        <span class="dot" onclick="currentSlide(2)"></span> 
+        <span class="dot" onclick="currentSlide(3)"></span> 
+        <span class="dot" onclick="currentSlide(4)"></span>
+        </div>
+        
+        <script>
+            var slideIndex = 0;
+            showSlides();
+            
+            function showSlides() {
+              var i;
+              var slides = document.getElementsByClassName("mySlides");
+              var dots = document.getElementsByClassName("dot");
+              for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+              }
+              slideIndex++;
+              if (slideIndex > slides.length) {slideIndex = 1}    
+              for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+              }
+              slides[slideIndex-1].style.display = "block";  
+              dots[slideIndex-1].className += " active";
+              setTimeout(showSlides, 2000); // Change image every 2 seconds
+            }
+            </script>
+     </div>
+    <!-- Slide show ends ------------------------------------------------------------> 

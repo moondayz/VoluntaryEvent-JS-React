@@ -1,0 +1,84 @@
+<%- include ('header.ejs'); -%>
+
+  <!-- Volunteer form validation JS -------------------------->
+  <script>
+
+    function validateForm() {
+      var text;
+
+      var x = document.forms["addVolunteerForm"]["firstName"].value;
+      var y = document.forms["addVolunteerForm"]["lastName"].value;
+      var z = document.forms["addVolunteerForm"]["phone"].value;
+      var d = document.forms["addVolunteerForm"]["address"].value;
+
+       
+       
+    
+      if (x == "") {
+        text = "First Name must be filled out" ;
+        document.getElementById("demox").innerHTML = text;
+        return false;
+      }
+      else if(y == "") {
+        text = "Last Name must be filled out" ;
+        document.getElementById("demoy").innerHTML = text;
+        return false;
+      }
+      else if(z== ""){
+        text = "Phone must be filled out." ;
+        document.getElementById("demoz").innerHTML = text;
+        return false;
+      }
+      else if(d == "") {
+        text = "Address must be filled out" ;
+        document.getElementById("demod").innerHTML = text;
+        return false;
+      }
+    
+    }    
+</script>
+
+
+
+<!-- Add Volunteer Form --------------------------------------------->
+
+<div class='bold-line'></div>
+
+<div class='container'>
+    <% if (message != '') { %>
+        <p class="text-center text-danger"><%= message %></p>
+    <% } %>
+
+    <form class="addVolunteerForm" action="" onsubmit="return validateForm()" method="POST" enctype="multipart/form-data">
+    
+        <div class='window'>
+           
+            <div class='overlay'></div>
+            <div class='content'>
+
+            <div class='welcome'>Add a Volunteer</div>
+            
+            <div class='input-fields'>
+                <input type='text' class='input-line full-width' name="firstName" id="firstName" placeholder="First Name" required></input>
+                <p id="demox"></p>
+                <input type='text' class='input-line full-width' name="lastName" id="lastName" placeholder="Last Name" required></input>
+                <p id="demoy"></p>
+                <input type="text" class='input-line full-width' name="address" id="address" placeholder="Address" required>
+                <p id="demod"></p>
+                <input type='number' class='input-line full-width' name="phone" id="phone" placeholder="Phone" required ></input>
+                <p id="demoz"></p>
+            </div>
+
+            <button type="submit" class='ghost-round full-width'>Add Volunteer</button>
+    
+           
+            </div>
+        </div>
+    </form>
+</div>
+
+
+    </div>
+
+</body>
+</html>

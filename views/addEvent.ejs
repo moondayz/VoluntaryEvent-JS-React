@@ -1,0 +1,83 @@
+<%- include ('header.ejs'); -%>
+
+    <!-- Event form validation JS -------------------------->
+    <script>
+
+        function validateForm() {
+          var text;
+
+          var x = document.forms["addEventForm"]["nameEvent"].value;
+          var y = document.forms["addEventForm"]["address"].value;
+          var z = document.forms["addEventForm"]["capacity"].value;
+          var d = document.forms["addEventForm"]["date"].value;
+
+           
+           
+        
+          if (x == "") {
+            text = "Event Name must be filled out" ;
+            document.getElementById("demox").innerHTML = text;
+            return false;
+          }
+          else if(y == "") {
+            text = "Address must be filled out" ;
+            document.getElementById("demoy").innerHTML = text;
+            return false;
+          }
+          else if(z>500 || z<50){
+            text = "Capacity must be between 50 and 500" ;
+            document.getElementById("demoz").innerHTML = text;
+            return false;
+          }
+          else if(d.length !== 10) {
+            text = "Date must be in the format of (dd-mm-yyyy)" ;
+            document.getElementById("demod").innerHTML = text;
+            return false;
+          }
+        
+        }    
+    </script>
+
+<!-- Add Event Form --------------------------------------------->
+
+<div class='bold-line'></div>
+
+<div class='container'>
+    <% if (message != '') { %>
+        <p class="text-center text-danger"><%= message %></p>
+    <% } %>
+
+    <form class="addEventForm" onsubmit="return validateForm()" name="addEventForm" action="" method="POST" enctype="multipart/form-data">
+    
+        <div class='window'>
+           
+            <div class='overlay'></div>
+            <div class='content'>
+
+            <div class='welcome'>Add a new Event</div>
+            
+            <div class='input-fields'>
+                <input type='text' class='input-line full-width' name="nameEvent" id="nameEvent" placeholder="Event Name"></input>
+                <p class="error" id="demox"></p>
+                <input type='text' class='input-line full-width' name="address" id="address" placeholder="Address" ></input>
+                <p class="error" id="demoy"></p>
+                <input type="date" class='input-line full-width' name="date" id="date" placeholder="Date" required>
+                <p class="error" id="demod"></p>
+                <input type='number' class='input-line full-width' name="capacity" id="capacity" placeholder="Capacity(50-500)" required ></input>
+                <p class="error" id="demoz"></p>
+            </div>
+
+            <button type="submit" class='ghost-round full-width'>Add Event</button>
+    
+           
+            </div>
+        </div>
+    </form>
+
+</div>
+
+
+    </div>
+
+    </body>
+</html>
